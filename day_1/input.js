@@ -1,5 +1,4 @@
-const input = `
-6758
+const input = `6758
 5199
 10292
 8812
@@ -2253,7 +2252,6 @@ const input = `
 5508
 3414
 2180
-4254
-`;
+4254`;
 
 export default input;

@@ -30,9 +30,20 @@ const sampleCalorieList = `1000
 
 10000`;
 
-const elfsInventory = sampleCalorieList.split('\n\n').map(line => {
-    const calories = Number(line.split('\n'));
-    console.log(calories);
+// Using the sample provided in the site:
+const sampleElvesInventory = sampleCalorieList.split("\n\n").map((line) => {
+    const calories = line.split("\n");
+    return calories.reduce((acc, value) => {
+        return acc + Number(value);
+    }, 0);
 });
-console.log(elfsInventory);
-// remover os simbolos de quebra de linha e somar os valores
+console.log('Max Calories from Sample: ', Math.max(...sampleElvesInventory));
+
+// Using the input provided in the site:
+const inputElvesInventory = input.split("\n\n").map((line) => {
+    const calories = line.split("\n");
+    return calories.reduce((acc, value) => {
+        return acc + Number(value);
+    }, 0);
+});
+console.log('Max Calories from Input: ', Math.max(...inputElvesInventory));
