@@ -32,18 +32,33 @@ const sampleCalorieList = `1000
 
 // Using the sample provided in the site:
 const sampleElvesInventory = sampleCalorieList.split("\n\n").map((line) => {
-    const calories = line.split("\n");
-    return calories.reduce((acc, value) => {
-        return acc + Number(value);
-    }, 0);
+  const calories = line.split("\n");
+  return calories.reduce((acc, value) => {
+    return acc + Number(value);
+  }, 0);
 });
-console.log('Max Calories from Sample: ', Math.max(...sampleElvesInventory));
+console.log("Max Calories from Sample: ", Math.max(...sampleElvesInventory));
 
 // Using the input provided in the site:
 const inputElvesInventory = input.split("\n\n").map((line) => {
-    const calories = line.split("\n");
-    return calories.reduce((acc, value) => {
-        return acc + Number(value);
-    }, 0);
+  const calories = line.split("\n");
+  return calories.reduce((acc, value) => {
+    return acc + Number(value);
+  }, 0);
 });
-console.log('Max Calories from Input: ', Math.max(...inputElvesInventory));
+console.log("Max Calories from Input: ", Math.max(...inputElvesInventory));
+
+console.log("Part two:");
+
+const sumOfTopThreeElves = (array) => {
+  const arraySorted = array.sort((a, b) => b - a).slice(0, 3);
+  return arraySorted.reduce((acc, item) => acc + item, 0);
+};
+console.log(
+  "The Calorie count from the top three elves on the sample: ",
+  sumOfTopThreeElves(sampleElvesInventory)
+);
+console.log(
+  "The Calorie count from the top three elves on the input: ",
+  sumOfTopThreeElves(inputElvesInventory)
+);
